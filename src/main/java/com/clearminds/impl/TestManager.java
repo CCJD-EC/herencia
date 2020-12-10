@@ -8,7 +8,7 @@ public class TestManager {
 	public static void main(String[] args) {
 		PersonaManager persManager;
 		try {
-			persManager = new PersonaManager();
+			persManager = new PersonaManager("propiedad2");
 			persManager.insertarPersona(new Persona("marcos", "milano", 10));
 		} catch (InstanceException e) {
 			e.printStackTrace();

@@ -15,10 +15,11 @@ public class PersonaManager {
 		private ServicioPersona serv;
 		public static String directorio = "./config.properties";
 		
-		public PersonaManager() throws InstanceException {
+		public PersonaManager(String propiedad) throws InstanceException {
 			Class<?> clase = null;
+			String claseElegida = leerPropiedad(propiedad);
 			try {
-				clase = Class.forName("com.clearminds.impl.ServicioPersonaBDD");
+				clase = Class.forName("com.clearminds.impl."+claseElegida);
 				this.serv = (ServicioPersona)clase.newInstance();
 			} catch (Exception e) {
 				throw new InstanceException("Error al obtener una instancia de ServicioPersona");
